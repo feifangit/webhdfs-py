@@ -141,7 +141,7 @@ class WebHDFS(object):
                 response = self._request(redirect_client, 'GET', redirect_url)
                 with open(target_path, 'w') as target_file:
                     while True:
-                        chunk = f.read(TRUNK_SIZE)
+                        chunk = response.read(TRUNK_SIZE)
                         if chunk == '':
                             break
                         target_file.write(chunk)
